@@ -78,7 +78,10 @@
     <Compile Include="tblUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\UserBLL.cs" />
+    <Compile Include="Transactions\BoardsBLL.cs" />
+    <Compile Include="Transactions\ListsBLL.cs" />
+    <Compile Include="Transactions\TasksBLL.cs" />
+    <Compile Include="Transactions\UsersBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model1.edmx">

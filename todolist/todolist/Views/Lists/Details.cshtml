@@ -1,0 +1,34 @@
+﻿@model BEUToDoList.tblList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name_list)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_list)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblBoard.name_board)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblBoard.name_board)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_list }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

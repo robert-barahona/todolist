@@ -4,45 +4,66 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<body class="index is-preload">
+    <div id="page-wrapper">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>tblBoard</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name_board)
-        </dt>
+        @Html.Partial("Menu")
 
-        <dd>
-            @Html.DisplayFor(model => model.name_board)
-        </dd>
+        <div id="main">
+            <header class="special container">
+                <span class="icon solid fa-user"></span>
+                <h2>BORRAR TABLERO</h2>
+            </header>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.id_participants)
-        </dt>
+            <section class="wrapper style4 container">
+                <h3>¿Está seguro de borrar estta mesa de trabajo?</h3>
+                <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.id_participants)
-        </dd>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.name_board)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tblUser.first_name)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.name_board)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.tblUser.first_name)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.id_participants)
+                        </dt>
 
-    </dl>
+                        <dd>
+                            @Html.DisplayFor(model => model.id_participants)
+                        </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                        <dt>
+                            @Html.DisplayNameFor(model => model.tblUser.first_name)
+                        </dt>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                        <dd>
+                            @Html.DisplayFor(model => model.tblUser.first_name)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                </div>
+
+            </section>
+
         </div>
-    }
-</div>
+    </div>
+</body>
+
+
+
+

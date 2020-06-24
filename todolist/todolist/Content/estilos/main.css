@@ -33,6 +33,23 @@ body {
 	line-height: 1;
 }
 
+.control-label{
+	font-weight:bold;
+	text-transform:uppercase;
+}
+th {
+	text-transform: uppercase;
+	font-weight: bold;
+	justify-items:center;
+}
+
+dt{
+	display:flex;
+	justify-content: space-between;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
 ol, ul {
 	list-style: none;
 }

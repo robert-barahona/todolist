@@ -236,6 +236,10 @@
     <Content Include="Views\Home\Articulo.cshtml" />
     <Content Include="Views\Home\Mensaje.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Users\Menu.cshtml" />
+    <Content Include="Views\Tasks\Menu.cshtml" />
+    <Content Include="Views\Lists\Menu.cshtml" />
+    <Content Include="Views\Boards\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

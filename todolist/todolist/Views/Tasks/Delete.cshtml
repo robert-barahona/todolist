@@ -3,54 +3,73 @@
 @{
     ViewBag.Title = "Delete";
 }
+    <body class="index is-preload">
+        <div id="page-wrapper">
 
-<h2>Delete</h2>
+            @Html.Partial("Menu")
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>tblTask</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.title)
-        </dt>
+            <div id="main">
+                <header class="special container">
+                    <span class="icon solid fa-trash"></span>
+                    <h2>BORRAR TAREA</h2>
+                </header>
 
-        <dd>
-            @Html.DisplayFor(model => model.title)
-        </dd>
+                <section class="wrapper style4 container">
+                    <h3>¿Está seguro de borrar esta tarea?</h3>
+                    <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descr)
-        </dt>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.title)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.descr)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.title)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.asigned_to)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.descr)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.asigned_to)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.descr)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tblList.name_list)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.asigned_to)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tblList.name_list)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.asigned_to)
+                            </dd>
 
-    </dl>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.tblList.name_list)
+                            </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                            <dd>
+                                @Html.DisplayFor(model => model.tblList.name_list)
+                            </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                        </dl>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-default" /> |
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        }
+                    </div>
+
+                </section>
+
+            </div>
         </div>
-    }
-</div>
+    </body>
+
+
+

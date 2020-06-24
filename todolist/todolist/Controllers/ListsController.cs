@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BEUToDoList;
+using BEUToDoList.Transactions;
 
 namespace todolist.Controllers
 {
@@ -18,7 +19,7 @@ namespace todolist.Controllers
         public ActionResult Index()
         {
             var tblList = db.tblList.Include(t => t.tblBoard);
-            return View(tblList.ToList());
+            return View(ListsBLL.List());
         }
 
         // GET: Lists/Details/5
@@ -28,7 +29,7 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblList tblList = db.tblList.Find(id);
+            tblList tblList = ListsBLL.Get(id);
             if (tblList == null)
             {
                 return HttpNotFound();
@@ -52,8 +53,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tblList.Add(tblList);
-                db.SaveChanges();
+                ListsBLL.Create(tblList);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +68,8 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblList tblList = db.tblList.Find(id);
+            tblList tblList = ListsBLL.Get(id);
+
             if (tblList == null)
             {
                 return HttpNotFound();
@@ -86,8 +87,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblList).State = EntityState.Modified;
-                db.SaveChanges();
+                ListsBLL.Update(tblList);
                 return RedirectToAction("Index");
             }
             ViewBag.id_board = new SelectList(db.tblBoard, "id_board", "name_board", tblList.id_board);
@@ -101,7 +101,8 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblList tblList = db.tblList.Find(id);
+            tblList tblList = ListsBLL.Get(id);
+
             if (tblList == null)
             {
                 return HttpNotFound();
@@ -114,19 +115,9 @@ namespace todolist.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblList tblList = db.tblList.Find(id);
-            db.tblList.Remove(tblList);
-            db.SaveChanges();
+            ListsBLL.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

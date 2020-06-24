@@ -4,48 +4,68 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<body class="index is-preload">
+    <div id="page-wrapper">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.asigned_to)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tblList.name_list)
-        </th>
-        <th></th>
-    </tr>
+        @Html.Partial("Menu")
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.asigned_to)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tblList.name_list)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_task }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_task }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_task })
-        </td>
-    </tr>
-}
+        <div id="main">
+            <header class="special container">
+                <span class="icon solid fa-tasks"></span>
+                <h2>LISTA DE TAREAS</h2>
+            </header>
 
-</table>
+            <section class="wrapper style4 container">
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.descr)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.asigned_to)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.tblList.name_list)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.descr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.asigned_to)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tblList.name_list)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id_task }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id_task }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id_task })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+
+
+

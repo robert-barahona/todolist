@@ -8,23 +8,22 @@ namespace todolist
         // Para obtener más información sobre las uniones, visite https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                    "~/Scripts/jquery.min.js",
+                    "~/Scripts/jquery.dropotron.min.js",
+                    "~/Scripts/jquery.scrolly.min.js",
+                    "~/Scripts/jquery.scrollex.min.js",
+                    "~/Scripts/browser.min.js",
+                    "~/Scripts/breakpoints.min.js",
+                    "~/Scripts/util.js",
+                      "~/Scripts/main.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
 
-            // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información. De este modo, estará
-            // para la producción, use la herramienta de compilación disponible en https://modernizr.com para seleccionar solo las pruebas que necesite.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/estilos/fontawesome-all.min.css",
+                      "~/Content/estilos/main.css",
+                      "~/Content/estilos/noscript.css"));
         }
     }
 }

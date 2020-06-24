@@ -11,15 +11,32 @@ namespace BEUToDoList
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblTask
     {
+        [Display(Name = "Tarea ")]
         public int id_task { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Título requeridos"), MaxLength(55)]
+        [Display(Name = "Titulo ")]
         public string title { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Descripción requerida"), MaxLength(55)]
+        [Display(Name = "Descripción")]
         public string descr { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Asignado a")]
         public int asigned_to { get; set; }
+
+        [Display(Name = "Lista ")]
         public int id_list { get; set; }
-    
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Asignaciones")]
         public virtual tblList tblList { get; set; }
     }
 }

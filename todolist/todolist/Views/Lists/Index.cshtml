@@ -3,37 +3,55 @@
 @{
     ViewBag.Title = "Index";
 }
+<body class="index is-preload">
+    <div id="page-wrapper">
 
-<h2>Index</h2>
+        @Html.Partial("Menu")
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name_list)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tblBoard.name_board)
-        </th>
-        <th></th>
-    </tr>
+        <div id="main">
+            <header class="special container">
+                <span class="icon solid fa-list"></span>
+                <h2>LISTAS DISPONIBLES</h2>
+            </header>
+            <section class="wrapper style4 container">
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.name_list)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.tblBoard.name_board)
+                        </th>
+                        <th></th>
+                    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name_list)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tblBoard.name_board)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_list }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_list }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_list })
-        </td>
-    </tr>
-}
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name_list)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tblBoard.name_board)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id_list }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id_list }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id_list })
+                            </td>
+                        </tr>
+                    }
 
-</table>
+                </table>
+
+
+            </section>
+
+        </div>
+    </div>
+</body>
+
+

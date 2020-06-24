@@ -4,47 +4,66 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+    <body class="index is-preload">
+        <div id="page-wrapper">
 
-<div>
-    <h4>tblTask</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.title)
-        </dt>
+            @Html.Partial("Menu")
 
-        <dd>
-            @Html.DisplayFor(model => model.title)
-        </dd>
+            <div id="main">
+                <header class="special container">
+                    <span class="icon solid fa-info"></span>
+                    <h2>DETALLES DE LA TAREA</h2>
+                </header>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descr)
-        </dt>
+                <section class="wrapper style4 container">
+                    <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.descr)
-        </dd>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.title)
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.asigned_to)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.title)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.asigned_to)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.descr)
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tblList.name_list)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.descr)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.tblList.name_list)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.asigned_to)
+                            </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_task }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            <dd>
+                                @Html.DisplayFor(model => model.asigned_to)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.tblList.name_list)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblList.name_list)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.id_task }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </body>
+
+
+
+

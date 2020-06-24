@@ -11,7 +11,8 @@ namespace BEUToDoList
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblList
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,9 +20,16 @@ namespace BEUToDoList
         {
             this.tblTask = new HashSet<tblTask>();
         }
-    
+
+        [Display(Name = "Lista ")]
         public int id_list { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Lista requeridos"), MaxLength(55)]
+        [Display(Name = "Listas ")]
         public string name_list { get; set; }
+
+        [Display(Name = "Tablero")]
         public int id_board { get; set; }
     
         public virtual tblBoard tblBoard { get; set; }

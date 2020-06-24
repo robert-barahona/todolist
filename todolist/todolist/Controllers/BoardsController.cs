@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BEUToDoList;
+using BEUToDoList.Transactions;
 
 namespace todolist.Controllers
 {
@@ -17,8 +18,8 @@ namespace todolist.Controllers
         // GET: Boards
         public ActionResult Index()
         {
-            var tblBoard = db.tblBoard.Include(t => t.tblUser);
-            return View(tblBoard.ToList());
+            
+            return View(BoardsBLL.List());
         }
 
         // GET: Boards/Details/5
@@ -28,7 +29,7 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblBoard tblBoard = db.tblBoard.Find(id);
+            tblBoard tblBoard = BoardsBLL.Get(id);
             if (tblBoard == null)
             {
                 return HttpNotFound();
@@ -52,8 +53,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tblBoard.Add(tblBoard);
-                db.SaveChanges();
+                BoardsBLL.Create(tblBoard);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +68,8 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblBoard tblBoard = db.tblBoard.Find(id);
+            tblBoard tblBoard = BoardsBLL.Get(id);
+
             if (tblBoard == null)
             {
                 return HttpNotFound();
@@ -86,8 +87,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblBoard).State = EntityState.Modified;
-                db.SaveChanges();
+                BoardsBLL.Update(tblBoard);
                 return RedirectToAction("Index");
             }
             ViewBag.id_owner = new SelectList(db.tblUser, "id_user", "first_name", tblBoard.id_owner);
@@ -101,7 +101,8 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblBoard tblBoard = db.tblBoard.Find(id);
+            tblBoard tblBoard = BoardsBLL.Get(id);
+
             if (tblBoard == null)
             {
                 return HttpNotFound();
@@ -114,19 +115,9 @@ namespace todolist.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblBoard tblBoard = db.tblBoard.Find(id);
-            db.tblBoard.Remove(tblBoard);
-            db.SaveChanges();
+            BoardsBLL.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

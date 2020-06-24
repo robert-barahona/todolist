@@ -3,32 +3,49 @@
 @{
     ViewBag.Title = "Details";
 }
+    <body class="index is-preload">
+        <div id="page-wrapper">
 
-<h2>Details</h2>
+            @Html.Partial("Menu")
 
-<div>
-    <h4>tblList</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name_list)
-        </dt>
+            <div id="main">
+                <header class="special container">
+                    <span class="icon solid fa-info"></span>
+                    <h2>DETALLE DE LA LISTA</h2>
+                </header>
 
-        <dd>
-            @Html.DisplayFor(model => model.name_list)
-        </dd>
+                <section class="wrapper style4 container">
+                    <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tblBoard.name_board)
-        </dt>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.name_list)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tblBoard.name_board)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.name_list)
+                            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_list }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.tblBoard.name_board)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblBoard.name_board)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.id_list }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </body>
+
+
+

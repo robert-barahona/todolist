@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BEUToDoList;
+using BEUToDoList.Transactions;
 
 namespace todolist.Controllers
 {
@@ -17,7 +18,7 @@ namespace todolist.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.tblUser.ToList());
+            return View(UsersBLL.List());
         }
 
         // GET: Users/Details/5
@@ -27,7 +28,7 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblUser tblUser = db.tblUser.Find(id);
+            tblUser tblUser = UsersBLL.Get(id);
             if (tblUser == null)
             {
                 return HttpNotFound();
@@ -50,8 +51,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tblUser.Add(tblUser);
-                db.SaveChanges();
+                UsersBLL.Create(tblUser);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +65,7 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblUser tblUser = db.tblUser.Find(id);
+            tblUser tblUser = UsersBLL.Get(id);
             if (tblUser == null)
             {
                 return HttpNotFound();
@@ -82,8 +82,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblUser).State = EntityState.Modified;
-                db.SaveChanges();
+                UsersBLL.Update(tblUser);
                 return RedirectToAction("Index");
             }
             return View(tblUser);
@@ -96,7 +95,7 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblUser tblUser = db.tblUser.Find(id);
+            tblUser tblUser = UsersBLL.Get(id);
             if (tblUser == null)
             {
                 return HttpNotFound();
@@ -109,19 +108,9 @@ namespace todolist.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblUser tblUser = db.tblUser.Find(id);
-            db.tblUser.Remove(tblUser);
-            db.SaveChanges();
+            UsersBLL.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

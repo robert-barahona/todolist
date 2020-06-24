@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BEUToDoList;
+using BEUToDoList.Transactions;
 
 namespace todolist.Controllers
 {
@@ -18,7 +19,7 @@ namespace todolist.Controllers
         public ActionResult Index()
         {
             var tblTask = db.tblTask.Include(t => t.tblList);
-            return View(tblTask.ToList());
+            return View(TasksBLL.List());
         }
 
         // GET: Tasks/Details/5
@@ -28,7 +29,7 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblTask tblTask = db.tblTask.Find(id);
+            tblTask tblTask = TasksBLL.Get(id);
             if (tblTask == null)
             {
                 return HttpNotFound();
@@ -52,8 +53,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tblTask.Add(tblTask);
-                db.SaveChanges();
+                TasksBLL.Create(tblTask);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +68,8 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblTask tblTask = db.tblTask.Find(id);
+            tblTask tblTask = TasksBLL.Get(id);
+
             if (tblTask == null)
             {
                 return HttpNotFound();
@@ -86,8 +87,7 @@ namespace todolist.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblTask).State = EntityState.Modified;
-                db.SaveChanges();
+                TasksBLL.Update(tblTask);
                 return RedirectToAction("Index");
             }
             ViewBag.id_list = new SelectList(db.tblList, "id_list", "name_list", tblTask.id_list);
@@ -101,7 +101,8 @@ namespace todolist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblTask tblTask = db.tblTask.Find(id);
+            tblTask tblTask = TasksBLL.Get(id);
+
             if (tblTask == null)
             {
                 return HttpNotFound();
@@ -114,19 +115,9 @@ namespace todolist.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblTask tblTask = db.tblTask.Find(id);
-            db.tblTask.Remove(tblTask);
-            db.SaveChanges();
+            TasksBLL.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

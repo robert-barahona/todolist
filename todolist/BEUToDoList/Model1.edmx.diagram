@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7f20bc8bb2514bb790b1716bcd0f6c67" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.tblBoard" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tblList" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tblTask" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tblUser" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.fk_Board" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.fk_List" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

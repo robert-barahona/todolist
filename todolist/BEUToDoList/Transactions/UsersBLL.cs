@@ -57,6 +57,12 @@ namespace BEUToDoList.Transactions
             }
         }
 
+        public static tblUser GetUser(string email, string password)
+        {
+            Entities db = new Entities();
+            return db.tblUser.FirstOrDefault(e => e.email == email && e.pass == password);
+        }
+
         public static void Delete(int? id)
         {
             using (Entities db = new Entities())

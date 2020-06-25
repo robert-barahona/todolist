@@ -4,61 +4,61 @@
     ViewBag.Title = "Index";
 }
 
-<body class="index is-preload">
-    <div id="page-wrapper">
+    <body class="index is-preload">
+        @Html.Partial("../Navigation/Menu")
+        <section id="banner">
+                <div id="main">
+                    <header class="special container">
+                        <span class="icon solid fa-chess-board"></span>
+                        <h2>TABLEROS</h2>
+                    </header>
 
-        @Html.Partial("Menu")
+                    <section class="inner" id="registro">
+                        <p style="text-align: left">
+                            @Html.ActionLink("Create New", "Create")
+                        </p>
+                        <br /><br />
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.name_board)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.id_participants)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.tblUser.first_name)
+                                </th>
+                                <th></th>
+                            </tr>
 
-        <div id="main">
-            <header class="special container">
-                <span class="icon solid fa-chess-board"></span>
-                <h2>TABLEROS</h2>
-            </header>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.name_board)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.id_participants)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tblUser.first_name)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.id_board }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.id_board }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id_board })
+                                    </td>
+                                </tr>
+                            }
 
-            <section class="wrapper style4 container">
-                <p>
-                    @Html.ActionLink("Create New", "Create")
-                </p>
-                <table class="table">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.name_board)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.id_participants)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.tblUser.first_name)
-                        </th>
-                        <th></th>
-                    </tr>
+                        </table>
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.name_board)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.id_participants)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tblUser.first_name)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.id_board }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.id_board }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.id_board })
-                            </td>
-                        </tr>
-                    }
+                    </section>
 
-                </table>
+                </div>
+        </section>
 
-            </section>
-
-        </div>
-    </div>
-</body>
+    </body>
 
 

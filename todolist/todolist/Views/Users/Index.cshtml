@@ -6,9 +6,8 @@
 
 
     <body class="index is-preload">
-        <div id="page-wrapper">
-
-            @Html.Partial("Menu")
+        @Html.Partial("Menu")
+        <section id="banner">
 
             <div id="main">
                 <header class="special container">
@@ -16,11 +15,11 @@
                     <h2>LISTA DE USUARIOS</h2>
                 </header>
 
-                <section class="wrapper style4 container">
+                <section class="inner" id="registro2">
 
 
                     <p>
-                        @Html.ActionLink("Create New", "Create")
+                        @Html.ActionLink("Nuevo", "Register")
                     </p>
                     <table class="table">
                         <tr>
@@ -66,5 +65,5 @@
                 </section>
 
             </div>
-        </div>
+            </section>
     </body>

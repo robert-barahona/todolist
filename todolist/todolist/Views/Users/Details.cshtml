@@ -4,22 +4,21 @@
     ViewBag.Title = "Details";
 }
 
-<body class="index is-preload">
-    <div id="page-wrapper">
-
+    <body class="index is-preload">
         @Html.Partial("Menu")
+        <section id="banner">
 
-        <div id="main">
-            <header class="special container">
-                <span class="icon solid fa-info"></span>
-                <h2>DETALLES DEL USUARIO</h2>
-            </header>
+            <div id="main">
+                <header class="special container">
+                    <span class="icon solid fa-info"></span>
+                    <h2>DETALLES DEL USUARIO</h2>
+                </header>
 
-            <section class="wrapper style4 container">
-             
-                    <hr/>
+                <section class="inner" id="registro">
+
+                    <hr />
                     <dl class="dl-horizontal">
-                        
+
                         <dt>
                             @Html.DisplayNameFor(model => model.first_name)
                         </dt>
@@ -53,15 +52,15 @@
                         </dd>
 
                     </dl>
-                <p>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.id_user }) |
-                    @Html.ActionLink("Back to List", "Index")
-                </p>
-            </section>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.id_user }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </section>
 
-        </div>
-    </div>
-</body>
+            </div>
+            </section>
+    </body>
 
 
 

@@ -2607,6 +2607,7 @@ input, select, textarea {
 				margin: 2em 0 0 0;
 			}
 
+
 /* Main */
 
 	#main {
@@ -3354,5 +3355,26 @@ input, select, textarea {
 				width: 50px;
 				height: 34px;
 			}
+	}
 
+	.pad {
+		padding: 0px;
+	}
+
+#registro {
+	width: 50%;
+	border-radius: 10px;
+}
+
+#registro2 {
+	width: 70%;
+	border-radius: 10px;
+}
+
+	#label{
+		padding: 0px;
+	}
+
+	#info_inicial{
+		border-radius: 10px;
 	}

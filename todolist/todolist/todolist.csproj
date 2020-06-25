@@ -135,6 +135,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,7 +212,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
@@ -237,13 +238,11 @@
     <Content Include="Views\Home\Mensaje.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
     <Content Include="Views\Users\Menu.cshtml" />
-    <Content Include="Views\Tasks\Menu.cshtml" />
-    <Content Include="Views\Lists\Menu.cshtml" />
-    <Content Include="Views\Boards\Menu.cshtml" />
+    <Content Include="Views\Navigation\Menu.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\old\glyphicons-halflings-regular.woff2" />

@@ -11,6 +11,7 @@ using BEUToDoList.Transactions;
 
 namespace todolist.Controllers
 {
+    [Authorize]
     public class BoardsController : Controller
     {
         private Entities db = new Entities();

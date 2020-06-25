@@ -5,9 +5,8 @@
 }
 
     <body class="index is-preload">
-        <div id="page-wrapper">
-
-            @Html.Partial("Menu")
+        @Html.Partial("../Navigation/Menu")
+        <section id="banner">
 
             <div id="main">
                 <header class="special container">
@@ -15,7 +14,7 @@
                     <h2>DETALLES DE LA TAREA</h2>
                 </header>
 
-                <section class="wrapper style4 container">
+                <section class="inner" id="registro">
                     <div>
 
                         <hr />
@@ -61,7 +60,7 @@
                 </section>
 
             </div>
-        </div>
+            </section>
     </body>
 
 
